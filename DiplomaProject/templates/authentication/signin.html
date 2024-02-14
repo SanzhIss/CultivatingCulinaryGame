@@ -8,10 +8,22 @@
     <title>Sign In</title>
 </head>
 <body>
+
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>Message:</strong> {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+
+    </div>
+    {% endfor %}
+
     <h3>Sign In</h3>
 
     <form action="/signin" method="post">
-    {% csrf_token %}
+
+        {% csrf_token %}
         <label for="">Username</label>
         <input type="text" id="username" name="username" placeholder="Enter your nickname" required>
         <br>
